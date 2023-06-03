@@ -11,9 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
+
+  //These are the properties of the city Column here
   City.init(
     {
-      name: { type: DataTypes.STRING, allowNull: false },
+      name: { type: DataTypes.STRING, allowNull: false, unique: true },
     },
     {
       sequelize,
