@@ -1,0 +1,48 @@
+"use strict";
+
+const city = require("../models/city");
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("Airports", {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      address: {
+        type: Sequelize.STRING,
+      },
+      cityId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+
+        // Telling that city will have column id that is acting here as Cityid
+
+        references: {
+          model: "Cities",
+          key: "id",
+          as: "cityId",
+        },
+        allowNull: false,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+    });
+  },
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("Airports");
+  },
+};
