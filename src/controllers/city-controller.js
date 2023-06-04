@@ -2,8 +2,7 @@
 
 // const cityService = new CityService();
 
-const { CityService } = require("../services/index");
-
+const {CityService} = require('../services/index')
 const cityService = new CityService();
 /* 
 * Type of request will be : POST
