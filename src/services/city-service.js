@@ -36,6 +36,7 @@ class CityService {
   }
 
   async getCity(cityId) {
+    // console.log(cityId); ==> 8
     try {
       const city = await this.cityRepository.getCity(cityId);
       return city;

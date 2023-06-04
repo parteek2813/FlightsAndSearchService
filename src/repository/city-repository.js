@@ -28,9 +28,12 @@ class CityRepository {
     }
   }
 
-  async getCity({ cityId }) {
+  async getCity(cityId) {
+    // Here we can't destructure the cityId as it will violate destructuring
+    // Use the arguments in the pair of round brackets
+
     try {
-      const city = await City.findbyPk(cityId);
+      const city = await City.findByPk(cityId);
       return city;
     } catch (error) {
       console.log("Something went wrong in the repository layer");

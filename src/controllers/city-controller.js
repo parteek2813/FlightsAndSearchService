@@ -2,7 +2,7 @@
 
 // const cityService = new CityService();
 
-const {CityService} = require('../services/index')
+const { CityService } = require("../services/index");
 const cityService = new CityService();
 /* 
 * Type of request will be : POST
@@ -61,6 +61,7 @@ const destroy = async (req, res) => {
 const get = async (req, res) => {
   try {
     const response = await cityService.getCity(req.params.id);
+
     return res.status(200).json({
       data: response,
       success: true,
@@ -72,7 +73,7 @@ const get = async (req, res) => {
     return res.status(500).json({
       data: "",
       success: false,
-      message: "Not able to get the city",
+      message: "Not able to get the city. There is no city with this id",
       err: error,
     });
   }
