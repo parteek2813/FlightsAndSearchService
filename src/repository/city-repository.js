@@ -43,14 +43,34 @@ class CityRepository {
 
   async updateCity(cityId, data) {
     try {
+      // Below code will also work but will not return updated object
+      // if using pg, then returning: true can be used.
       // update function takes key:value pair ==> Key what column u wannna update
       // value ==> what value u wanna update
-      const city = await City.update(data, {
-        where: {
-          id: cityId,
-        },
-      });
+      // const city = await City.update(data, {
+      //   where: {
+      //     id: cityId,
+      //   },
+      //   returning: true,
+      //   plain: true,
+      // });
+
+      const city = await City.findByPk(cityId);
+      city.name = data.name;
+
+      await city.save();
+
       return city;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
+
+  async getAllCities() {
+    try {
+      const cities = await City.findAll();
+      return cities;
     } catch (error) {
       console.log("Something went wrong in the repository layer");
       throw { error };
