@@ -4,18 +4,17 @@
 
 const { CityService } = require("../services/index");
 const cityService = new CityService();
+
 /* 
 * Type of request will be : POST
 * data -> req.body
-
 // The usecase of controller is request is going to come on this controller
 // and the corresponding request data is passed to all services, repo layer and they will
 // process somehow things and give it back to the controller layer where controller layer 
 // will prepare the corresponding response structure based on the request and then give 
 // it back on the client side
-
-
 */
+
 const create = async (req, res) => {
   try {
     const city = await cityService.createCity(req.body);
