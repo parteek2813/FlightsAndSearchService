@@ -57,6 +57,19 @@ class CityService {
       throw error;
     }
   }
+
+  async getMultipleCities(filter) {
+    try {
+      const MulCities = await this.cityRepository.getMultipleCities({
+        name: filter.name,
+      });
+
+      return MulCities;
+    } catch (error) {
+      console.log("SOmething went wrong at service layers");
+      throw error;
+    }
+  }
 }
 
 module.exports = CityService;

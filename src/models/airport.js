@@ -12,8 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.City, {
         foreignKey: "cityId",
+
         // ONdelete is for when we delete a particular city
-        // all airports in that city should also be
+        // all airports in that city should also be deleted
+
         onDelete: "CASCADE",
       });
     }

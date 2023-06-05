@@ -12,35 +12,36 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-
     await queryInterface.bulkInsert(
-      "Airports",
+      "Airplanes",
       [
         {
-          name: "Indira Gandhi International Airport",
-          address: "New Delhi, Delhi 110037",
-          cityId: 11,
+          modelNumber: "Boeing 737",
+          capacity: 300,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Mumbai International Airport",
-          address: "Mumbai, Maharashtra 400099",
-          cityId: 8,
+          modelNumber: "Airbus A320",
+          capacity: 350,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Pune International Airport",
-          address: "Pune, Maharashtra 411032",
-          cityId: 14,
+          modelNumber: "Boeing 777",
+          capacity: 400,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Jaiparkash Narayan Airport",
-          address: "Jaiparkarsh, bengaluru",
-          cityId: 15,
+          modelNumber: "Boeing 747",
+          capacity: 420,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          modelNumber: "Airbus A330",
+          capacity: 380,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

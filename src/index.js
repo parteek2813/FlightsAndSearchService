@@ -3,7 +3,7 @@ const body_parser = require("body-parser");
 
 // require("dotenv").config();
 // const { PORT } = require("./config/serverConfig");
-const { City, Airport } = require("./models/index");
+// const { Airplane } = require("./models/index");
 
 const sequelize = require("sequelize");
 const db = require("./models/index");
@@ -25,20 +25,21 @@ const setupAndStartServer = async () => {
   app.listen(PORT, async () => {
     console.log(`Server Started at ${PORT}`);
 
-    const city = await City.findOne({
-      where: {
-        id: 8,
-      },
-    });
+    // await Airplane.create({
+    //   modelNumber: "Bombardier CRJ",
+    // });
+    // const city = await City.findOne({
+    //   where: {
+    //     id: 8,
+    //   },
+    // });
 
     //
     // db.sequelize.sync({
     //   alter: true,
     // });
     //
-
-    const airports = await city.getAirports();
-
+    // const airports = await city.getAirports();
     // console.log(city, airports);
   });
 };
