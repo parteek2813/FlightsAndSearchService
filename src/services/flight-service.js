@@ -20,7 +20,7 @@ class FlightService {
       );
       const flight = await this.flightrepository.createFlight({
         ...data,
-        totalSeats: airplane.capacity,
+        totalSeats: airplane ? airplane.capacity : 0,
       });
 
       return flight;
